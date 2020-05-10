@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>wordCounter</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.sound.min.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <meta charset="utf-8" />
+    <style media="screen">
+      html, body {
+        font-family: monospace;
+        color: black;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        margin: 0 24px;
+      }
+      canvas {
+        display: block;
+        margin-bottom: 16px;
+      }
+      a:hover {
+        text-decoration: line-through;
+      }
+      .title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 16px
+      }
+      .margin-bottom {
+        display: block;
+        margin-bottom: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <span><a href="https://editor.p5js.org/learodrigo/sketches/vEdpyIQvr" target="_blank">editor.p5js.org</a></span>
+    </p>
+    <div class="title">Word counter</div>
+    <div class="margin-bottom"><span>Counts words from a source text and analize how many times a word appears. The bigger the font, the more times that word appeared. The text used for this example is a sample from <a href="https://lipsum.com/" target="_blank">lorem ipsum</a>.</span></div>
+    <script src="sketch.js"></script>
+  </body>
+</html>
