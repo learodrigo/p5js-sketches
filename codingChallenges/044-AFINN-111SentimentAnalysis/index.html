@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AFINN-111SentimentAnalysis</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.sound.min.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <meta charset="utf-8" />
+    <style media="screen">
+      html, body {
+        font-family: monospace;
+        color: black;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        margin: 0 24px;
+      }
+      canvas {
+        display: block;
+      }
+      a:hover {
+        text-decoration: line-through;
+      }
+      .title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 16px
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <span><a href="http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010" target="_blank">AFINN paper</a> || <a href="https://editor.p5js.org/learodrigo/sketches/Ooj8ThAIz" target="_blank">editor.p5js.org</a></span>
+    </p>
+    <div class="title">AFINN-111 - Sentiment analysis</div>
+    <p>
+      Write something about your feelings
+      <br>
+      <br>
+      <textarea id="textArea" cols="60" rows="10"></textarea>
+      <br>
+    </p>
+    <p id="afinnScore"></p>
+    <p id="afinnComp"></p>
+    <p id="afinnWords"></p>
+    <script src="sketch.js"></script>
+  </body>
+</html>
