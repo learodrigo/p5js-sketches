@@ -22,17 +22,17 @@ var c = document.querySelector( 'canvas' ),
 	stop,
 	raf;
 
-function rand( min, max ) {
-	return Math.random() * ( max - min ) + min;
+function rand (min, max) {
+	return Math.random() * ( max - min ) + min
 }
 
-function dist( p1, p2 ) {
-	var dx = p2.x - p1.x,
-		dy = p2.y - p1.y;
-	return Math.sqrt( dx * dx + dy * dy );
+function dist (p1, p2) {
+	const dx = p2.x - p1.x
+	const dy = p2.y - p1.y;
+	return Math.sqrt(dx * dx + dy * dy)
 }
 
-function Walker( x, y, r, color, standing ) {
+function Walker (x, y, r, color, standing) {
 	count++;
 	this.x = x;
 	this.y = y;
