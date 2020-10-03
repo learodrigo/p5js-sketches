@@ -18,9 +18,13 @@ function setup () {
 }
 
 function layerCollector () {
+    if (random(1) > 0.3) layers.push(new CenteredShape())
     if (random(1) > 0.3) layers.push(new OutlineShape())
     if (random(1) > 0.3) layers.push(new SimpleLines())
     if (random(1) > 0.3) layers.push(new Circles())
+    if (random(1) > 0.3) layers.push(new DottedLines())
+    if (random(1) > 0.3) layers.push(new RingOfShape())
+    if (random(1) > 0.3) layers.push(new SteppedHexagons())
 }
 
 function renderLayers () {
@@ -30,7 +34,7 @@ function renderLayers () {
 }
 
 function draw () {
-    // testLines()
+    testLines()
     layerCollector()
     renderLayers()
 }
