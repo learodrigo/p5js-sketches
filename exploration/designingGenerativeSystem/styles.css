@@ -2,3 +2,14 @@ html, body, canvas {
     margin: 0;
     padding: 0;
 }
+
+.save-button {
+    background-color: darkslategrey;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    margin-left: 50px;
+    margin-top: 50px;
+    padding: 14px 36px;
+}
