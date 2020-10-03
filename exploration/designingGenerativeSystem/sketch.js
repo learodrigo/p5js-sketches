@@ -15,10 +15,6 @@ function setup () {
     noLoop()
 }
 
-function randomSelectTwo () {
-    return random(1) > 0.5
-}
-
 function drawBaseLines () {
     const numShapes = randomSelectTwo() ? SIDES : SIDES * 2
     const strokeColor = getRandomFromPalette()
@@ -41,11 +37,22 @@ function drawBaseLines () {
     pop()
 }
 
-function getRandomFromPalette () {
-    const rando = floor(random(PALETTE.length))
-    return PALETTE[rando]
+function outlineShape () {
+    const strokeColor = getRandomFromPalette()
+    const border = randomSelectTwo() ? 1 : 3
+    const withHexagon = randomSelectTwo()
+
+    stroke(strokeColor)
+    strokeWeight(border)
+
+    push()
+        noFill()
+        translate(width * 0.5, height * 0.5)
+        withHexagon ? hexagon(0, 0, CRYSTAL_SIZE * 0.5) : ellipse(0, 0, CRYSTAL_SIZE, CRYSTAL_SIZE)
+    pop()
 }
 
 function draw () {
-    drawBaseLines()
+    // drawBaseLines()
+    outlineShape()
 }
