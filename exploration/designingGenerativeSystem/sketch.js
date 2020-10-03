@@ -1,6 +1,5 @@
 const CRYSTAL_SIZE = 500
 const SIDES = 6
-const layers = []
 
 let PALETTE = []
 
@@ -17,22 +16,8 @@ function setup () {
     noLoop()
 }
 
-function createLayers () {
-    layerConstructor.forEach(layer => {
-        if (random(1) > layer.weight) {
-            layers.push(layer.init())
-        }
-    })
-}
-
-function renderLayers () {
-    layers.forEach(layer => {
-        layer.render()
-    })
-}
-
 function draw () {
+    const crystal = new Crystal(width / 2, height / 2)
+    crystal.render()
     testLines()
-    createLayers()
-    renderLayers()
 }

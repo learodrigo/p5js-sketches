@@ -6,8 +6,8 @@ class Layer {
         this.stepsOut = 8
         this.singleStep = (CRYSTAL_SIZE * 0.5) / this.stepsOut
         this.layerColor = getRandomFromPalette()
-        this.thinStroke = 1
-        this.thickStroke = 3
+        this.thinStroke = 2
+        this.thickStroke = 10
     }
 }
 
@@ -24,12 +24,10 @@ class Circles extends Layer {
         strokeWeight(this.thinStroke)
 
         push()
-        translate(width * 0.5, height * 0.5)
-
-        for (let i = 0; i <= this.numShapes; i++) {
-            ellipse(this.pos, 0, this.shapeSize, this.shapeSize)
-            rotate(this.angle)
-        }
+            for (let i = 0; i <= this.numShapes; i++) {
+                ellipse(this.pos, 0, this.shapeSize, this.shapeSize)
+                rotate(this.angle)
+            }
         pop()
     }
 }
@@ -49,13 +47,12 @@ class SimpleLines extends Layer {
         noFill()
         stroke(this.layerColor)
         strokeWeight(this.border)
-        push()
-        translate(width * 0.5, height * 0.5)
 
-        for (let i = 0; i < this.numShapes; i++) {
-            line(this.start * this.step, 0, this.stop * this.step, 0)
-            rotate(this.angle)
-        }
+        push()
+            for (let i = 0; i < this.numShapes; i++) {
+                line(this.start * this.step, 0, this.stop * this.step, 0)
+                rotate(this.angle)
+            }
         pop()
     }
 }
@@ -72,9 +69,8 @@ class OutlineShape extends Layer {
         strokeWeight(this.border)
 
         push()
-        noFill()
-        translate(width * 0.5, height * 0.5)
-        this.withHexagon ? hexagon(0, 0, CRYSTAL_SIZE * 0.5) : ellipse(0, 0, CRYSTAL_SIZE, CRYSTAL_SIZE)
+            noFill()
+            this.withHexagon ? hexagon(0, 0, CRYSTAL_SIZE * 0.5) : ellipse(0, 0, CRYSTAL_SIZE, CRYSTAL_SIZE)
         pop()
     }
 }
@@ -91,14 +87,14 @@ class DottedLines extends Layer {
     render() {
         fill(this.layerColor)
         noStroke()
+
         push()
-        translate(width * 0.5, height * 0.5)
-        for (let i = 0; i <= this.numShapes; i++) {
-            for (let x = this.centerOffset; x < CRYSTAL_SIZE * 0.5; x += this.singleStep) {
-                rect(x, 0, this.shapeSize, this.shapeSize)
+            for (let i = 0; i <= this.numShapes; i++) {
+                for (let x = this.centerOffset; x < CRYSTAL_SIZE * 0.5; x += this.singleStep) {
+                    rect(x, 0, this.shapeSize, this.shapeSize)
+                }
+                rotate(this.angle)
             }
-            rotate(this.angle)
-        }
         pop()
     }
 }
@@ -115,18 +111,16 @@ class CenteredShape extends Layer {
         noStroke()
 
         push()
-        translate(width * 0.5, height * 0.5)
-
-        if (this.randomShape < 0.1) {
-            rect(0, 0, this.shapeSize * 2, this.shapeSize * 2)
-        }
-        else if (this.randomShape >= 0.1 && this.randomShape < 0.6) {
-            ellipse(0, 0, this.shapeSize * 2, this.shapeSize * 2)
-        }
-        else {
-            rotate(this.angle * 0.5)
-            hexagon(0, 0, this.shapeSize)
-        }
+            if (this.randomShape < 0.1) {
+                rect(0, 0, this.shapeSize * 2, this.shapeSize * 2)
+            }
+            else if (this.randomShape >= 0.1 && this.randomShape < 0.6) {
+                ellipse(0, 0, this.shapeSize * 2, this.shapeSize * 2)
+            }
+            else {
+                rotate(this.angle * 0.5)
+                hexagon(0, 0, this.shapeSize)
+            }
         pop()
     }
 }
@@ -158,19 +152,18 @@ class RingOfShape extends Layer {
         strokeWeight(this.border)
 
         push()
-        translate(width * 0.5, height * 0.5)
-        for (let i = 0; i < this.numShapes; i++) {
-            if (this.randomShape < 0.33) {
-                ellipse(0, this.center, this.radius, this.radius)
+            for (let i = 0; i < this.numShapes; i++) {
+                if (this.randomShape < 0.33) {
+                    ellipse(0, this.center, this.radius, this.radius)
+                }
+                else if (this.randomShape >= 0.33 && this.randomShape < 0.66) {
+                    rect(0, this.center, this.radius, this.radius)
+                }
+                else {
+                    myTriangle(this.center, this.radius, this.direction)
+                }
+                rotate(this.angle)
             }
-            else if (this.randomShape >= 0.33 && this.randomShape < 0.66) {
-                rect(0, this.center, this.radius, this.radius)
-            }
-            else {
-                myTriangle(this.center, this.radius, this.direction)
-            }
-            rotate(this.angle)
-        }
         pop()
     }
 }
@@ -190,8 +183,8 @@ class SteppedHexagons extends Layer {
         strokeWeight(this.border)
 
         push()
-            translate(width * 0.5, height * 0.5)
             rotate(this.angle * 0.5)
+
             for (let i = 1; i < this.numSteps + 1; i++) {
                 hexagon(0, 0, this.centerOffset + (i * this.singleStep))
             }
