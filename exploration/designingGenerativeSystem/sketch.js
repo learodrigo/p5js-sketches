@@ -1,5 +1,7 @@
 const CRYSTAL_SIZE = 500
 const SIDES = 6
+const layers = []
+
 let PALETTE = []
 
 function setup () {
@@ -15,24 +17,20 @@ function setup () {
     noLoop()
 }
 
+function layerCollector () {
+    if (random(1) > 0.3) layers.push(new OutlineShape())
+    if (random(1) > 0.3) layers.push(new SimpleLines())
+    if (random(1) > 0.3) layers.push(new Circles())
+}
+
+function renderLayers () {
+    layers.forEach(layer => {
+        layer.render()
+    })
+}
+
 function draw () {
-    testLines()
-
-    let picker = random(1)
-    if (picker > 0.3) {
-        const outlineShape = new OutlineShape()
-        outlineShape.render()
-    }
-
-    picker = random(1)
-    if (picker > 0.3) {
-        const simpleLines = new SimpleLines()
-        simpleLines.render()
-    }
-
-    picker = random(1)
-    if (picker > 0.3) {
-        const circles = new Circles()
-        circles.render()
-    }
+    // testLines()
+    layerCollector()
+    renderLayers()
 }
