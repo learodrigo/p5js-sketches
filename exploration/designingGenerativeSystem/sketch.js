@@ -15,7 +15,7 @@ function setup () {
     noLoop()
 }
 
-function drawBaseLines () {
+function testLines () {
     const numShapes = randomSelectTwo() ? SIDES : SIDES * 2
     const strokeColor = getRandomFromPalette()
 
@@ -52,7 +52,35 @@ function outlineShape () {
     pop()
 }
 
+function simpleLines () {
+    const stepsOut = 8
+    const numSteps = randomSelectTwo() ? stepsOut : int(stepsOut * 1.25)
+    const step = (CRYSTAL_SIZE / 2) / numSteps
+    const start = floor(random(numSteps))
+    const stop = floor(random(start, numSteps + 1))
+
+    const border = randomSelectTwo() ? 1 : 3
+    const numShapes = randomSelectTwo() ? SIDES : SIDES * 2
+    const strokeColor = getRandomFromPalette()
+
+    const angle = 360 / numShapes
+
+    noFill()
+    stroke(strokeColor)
+    strokeWeight(border)
+    push()
+        translate(width * 0.5, height * 0.5)
+
+        for (let i = 0; i < numShapes; i++) {
+            // line(0, 0, 0, CRYSTAL_SIZE / 2)
+            line(start * step, 0, stop * step, 0)
+            rotate(angle)
+        }
+    pop()
+}
+
 function draw () {
-    // drawBaseLines()
-    outlineShape()
+    testLines()
+    // outlineShape()
+    simpleLines()
 }
