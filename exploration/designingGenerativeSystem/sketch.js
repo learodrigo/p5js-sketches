@@ -17,14 +17,12 @@ function setup () {
     noLoop()
 }
 
-function layerCollector () {
-    if (random(1) > 0.3) layers.push(new CenteredShape())
-    if (random(1) > 0.3) layers.push(new OutlineShape())
-    if (random(1) > 0.3) layers.push(new SimpleLines())
-    if (random(1) > 0.3) layers.push(new Circles())
-    if (random(1) > 0.3) layers.push(new DottedLines())
-    if (random(1) > 0.3) layers.push(new RingOfShape())
-    if (random(1) > 0.3) layers.push(new SteppedHexagons())
+function createLayers () {
+    layerConstructor.forEach(layer => {
+        if (random(1) > layer.weight) {
+            layers.push(layer.init())
+        }
+    })
 }
 
 function renderLayers () {
@@ -35,6 +33,6 @@ function renderLayers () {
 
 function draw () {
     testLines()
-    layerCollector()
+    createLayers()
     renderLayers()
 }

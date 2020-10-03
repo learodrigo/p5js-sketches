@@ -107,14 +107,16 @@ class CenteredShape extends Layer {
     constructor() {
         super()
         this.randomShape = random(1)
-        this.shapeSize = floor(random(this.stepsOut * 0.5, this.stepsOut)) * this.singleStep
+        this.shapeSize = floor(random(this.stepsOut * 0.5, this.stepsOut - 2)) * this.singleStep
     }
 
     render() {
         fill(this.layerColor)
         noStroke()
+
         push()
         translate(width * 0.5, height * 0.5)
+
         if (this.randomShape < 0.1) {
             rect(0, 0, this.shapeSize * 2, this.shapeSize * 2)
         }

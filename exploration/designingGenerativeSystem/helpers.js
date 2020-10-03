@@ -61,3 +61,41 @@ function testLines () {
         }
     pop()
 }
+
+const layerConstructor = [
+    {
+        name: 'Centered Shape',
+        weight: 0.3,
+        init: () => new CenteredShape()
+    },
+    {
+        name: 'Circles Shape',
+        weight: 0.3,
+        init: () => new Circles()
+    },
+    {
+        name: 'SimpleLines Shape',
+        weight: 0.3,
+        init: () => new SimpleLines()
+    },
+    {
+        name: 'Outline Shape',
+        weight: 0.3,
+        init: () => new OutlineShape()
+    },
+    {
+        name: 'DottedLines Shape',
+        weight: 0.3,
+        init: () => new DottedLines()
+    },
+    {
+        name: 'RingOf Shape',
+        weight: 0.3,
+        init: () => new RingOfShape()
+    },
+    {
+        name: 'SteppedHexagons Shape',
+        weight: 0.7,
+        init: () => new SteppedHexagons()
+    }
+]
