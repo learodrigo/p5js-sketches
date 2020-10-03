@@ -6,8 +6,8 @@ class Layer {
         this.stepsOut = 8
         this.singleStep = (CRYSTAL_SIZE * 0.5) / this.stepsOut
         this.layerColor = getRandomFromPalette()
-        this.thinStroke = 2
-        this.thickStroke = 10
+        this.thinStroke = CRYSTAL_SIZE * 0.005
+        this.thickStroke = CRYSTAL_SIZE * 0.01
     }
 }
 
@@ -65,11 +65,11 @@ class OutlineShape extends Layer {
     }
 
     render() {
+        noFill()
         stroke(this.layerColor)
         strokeWeight(this.border)
 
         push()
-            noFill()
             this.withHexagon ? hexagon(0, 0, CRYSTAL_SIZE * 0.5) : ellipse(0, 0, CRYSTAL_SIZE, CRYSTAL_SIZE)
         pop()
     }
@@ -85,7 +85,7 @@ class DottedLines extends Layer {
     }
 
     render() {
-        fill(this.layerColor)
+        noFill()
         noStroke()
 
         push()
@@ -107,7 +107,7 @@ class CenteredShape extends Layer {
     }
 
     render() {
-        fill(this.layerColor)
+        noFill()
         noStroke()
 
         push()
@@ -147,8 +147,8 @@ class RingOfShape extends Layer {
     }
 
     render() {
+        noFill()
         stroke(this.layerColor)
-        fill(this.fillColor)
         strokeWeight(this.border)
 
         push()
