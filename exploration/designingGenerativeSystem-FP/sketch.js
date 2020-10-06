@@ -29,5 +29,13 @@ function setup () {
 }
 
 function draw () {
+    for (let x = 0; x < COLUMNS; x++) {
+        for (let y = 0; y < ROWS; y++) {
+            const posX = (x * GRIDBOX) + START
+            const posY = (y * GRIDBOX) + START
+            crystals.push(makeCrystal({x: posX, y: posY}))
+        }
+    }
 
+    crystals.forEach(c => drawCrystal(c))
 }

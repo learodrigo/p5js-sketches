@@ -13,33 +13,13 @@ const setState = (state) => {
     return state
 }
 
-const circles = (state) => {
-    state.shapeSize = (CRYSTAL_SIZE * 0.5) * 0.93
-    state.pos = (CRYSTAL_SIZE * 0.5) - (state.shapeSize * 0.5)
-
-    return ({
-        name: 'Circles Shape',
-        render: () => {
-            noFill()
-            stroke(state.layerColor)
-            strokeWeight(state.thinStroke)
-
-            push()
-                for (let i = 0; i <= state.numShapes; i++) {
-                    ellipse(state.pos, 0, state.shapeSize, state.shapeSize)
-                    rotate(state.angle)
-                }
-            pop()
-        }
-    })
-}
-
 const centeredShape = (state) => {
     state.randomShape = random(1)
     state.shapeSize = floor(random(state.stepsOut * 0.5, state.stepsOut - 2)) * state.singleStep
 
     return ({
         name: 'Centered Shape',
+        state,
         render: () => {
             noFill()
             noStroke()
@@ -60,6 +40,28 @@ const centeredShape = (state) => {
     })
 }
 
+const circles = (state) => {
+    state.shapeSize = (CRYSTAL_SIZE * 0.5) * 0.93
+    state.positionX = (CRYSTAL_SIZE * 0.5) - (state.shapeSize * 0.5)
+
+    return ({
+        name: 'Circles Shape',
+        state,
+        render: () => {
+            noFill()
+            stroke(state.layerColor)
+            strokeWeight(state.thinStroke)
+
+            push()
+                for (let i = 0; i <= state.numShapes; i++) {
+                    ellipse(state.positionX, 0, state.shapeSize, state.shapeSize)
+                    rotate(state.angle)
+                }
+            pop()
+        }
+    })
+}
+
 const dottedLines = (state) => {
     state.numShapes = randomSelectTwo() ? state.sides : state.sides * 2
     state.angle = 360 / state.numShapes
@@ -68,6 +70,7 @@ const dottedLines = (state) => {
 
     return ({
         name: 'Dotted Lines Shape',
+        state,
         render: () => {
             noFill()
             noStroke()
@@ -90,6 +93,7 @@ const outlineShape = (state) => {
 
     return ({
         name: 'Outline Shape',
+        state,
         render: () => {
             noFill()
             stroke(state.layerColor)
@@ -122,6 +126,7 @@ const ringOfShape = (state) => {
 
     return ({
         name: 'Ring Of Shape',
+        state,
         render: () => {
             noFill()
             stroke(state.layerColor)
@@ -155,6 +160,7 @@ const simpleLines = (state) => {
 
     return ({
         name: 'Simple Lines Shape',
+        state,
         render: () => {
             noFill()
             stroke(state.layerColor)
@@ -178,6 +184,7 @@ const steppedHexagons = (state) => {
 
     return ({
         name: 'Stepped Hexagons Shape',
+        state,
         render: () => {
             noFill()
             stroke(state.layerColor)
@@ -188,6 +195,33 @@ const steppedHexagons = (state) => {
 
                 for (let i = 1; i < state.numSteps + 1; i++) {
                     hexagon(0, 0, state.centerOffset + (i * state.singleStep))
+                }
+            pop()
+        }
+    })
+}
+
+const testLines = (state) => {
+    state.numShapes = randomSelectTwo() ? SIDES : SIDES * 2
+    state.angle = 360 / state.numShapes
+
+    return ({
+        name: 'Test Lines',
+        state,
+        render: () => {
+            noFill()
+            stroke(state.layerColor)
+            strokeWeight(state.thickStroke)
+
+            push()
+                if (state.hasLines) {
+                    for (let i = 0; i < 360 - 0.1; i += state.angle) {
+                        line(0, 0, 0, CRYSTAL_SIZE * 0.5)
+                        rotate(state.angle)
+                    }
+                }
+                if (state.hasCircle) {
+                    ellipse(0, 0, CRYSTAL_SIZE, CRYSTAL_SIZE)
                 }
             pop()
         }
