@@ -2,7 +2,7 @@ const CRYSTAL_SIZE = 150
 const SIDES = 6
 
 // layout
-const COLUMNS = 4
+const COLUMNS = 5
 const MARGIN = CRYSTAL_SIZE * 0.5
 const PADDING = CRYSTAL_SIZE * 0.2
 const GRIDBOX = CRYSTAL_SIZE + PADDING
