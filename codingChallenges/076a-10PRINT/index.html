@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Invaders</title>
+    <title>10PRINT</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.sound.min.js"></script> -->
@@ -14,13 +14,11 @@
         margin: 0;
         padding: 0;
       }
-      html {
-        background-color: black;
-        margin: 0 20px;
+      body {
+        margin: 0 0px;
       }
       canvas {
         display: block;
-        margin: 0 auto;
       }
       a {
         color: black;
@@ -28,19 +26,26 @@
       a:hover {
         text-decoration: line-through;
       }
-      .absolute {
-        margin-left: 20px;
-        position: absolute;
+      .title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 16px
       }
-      .white,
-      .white a {
+      .absolute {
+        position: absolute;
+        margin-left: 20px;
+      }
+      .white {
+        color: white;
+      }
+      .white > a {
         color: white;
       }
     </style>
   </head>
   <body>
-    <p class="white">
-      <a href="https://www.instagram.com/p/B_U90jIn0bP/" target="_blank">@lastrea_</a>
+    <p class="absolute">
+      <span class="white">10PRINT <a href="https://10print.org/" target="_blank">website</a> || <a href="https://editor.p5js.org/learodrigo/sketches/Sv6y9he-" target="_blank">editor.p5js.org</a></span>
     </p>
     <script src="sketch.js"></script>
   </body>
