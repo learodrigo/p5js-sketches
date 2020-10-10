@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Double Random</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+    <meta charset="utf-8" />
+    <style media="screen">
+        html,
+		body {
+			color: black;
+			background-color: black;
+			font-family: monospace;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			margin: 0 0px;
+		}
+
+		canvas {
+			display: block;
+			margin: 0 auto;
+		}
+
+		a {
+			color: black;
+		}
+
+		a:hover {
+			text-decoration: line-through;
+		}
+
+		.title {
+			font-size: 24px;
+			font-weight: bold;
+			margin-bottom: 16px
+		}
+
+		.absolute {
+			position: absolute;
+			margin-left: 20px;
+		}
+
+		.white {
+			color: white;
+		}
+
+		.white>a {
+			color: white;
+		}
+
+		p,
+		input {
+			display: inline-block;
+			margin-left: 10px;
+			vertical-align: middle;
+		}
+    </style>
+</head>
+
+<body>
+    <span class="absolute white">
+        <a href="https://editor.p5js.org/learodrigo/sketches/RWgI9LgGk" target="_blank">editor.p5js.org</a> || Reference from <a href="https://processing.org/examples/doublerandom.html" target="_blank"></a>processing.org</a>
+    </span>
+    <script>
+        let totalPts = 10000
+        let steps = totalPts + 1
+
+        function setup() {
+            createCanvas(windowWidth, windowHeight)
+            stroke(255)
+            strokeWeight(0.01)
+            frameRate(5)
+        }
+
+        function draw() {
+            background(0)
+            let rand = random(-5, 5)
+
+            for (let i = 1; i < steps; i++) {
+                rand += random(-5, 5)
+                point((width / steps) * i, (height / 2) + random(-rand, rand) / 1.618)
+            }
+        }
+    </script>
+</body>
+
+</html>

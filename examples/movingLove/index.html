@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+    <title>Moving love</title>
+    <style media="screen">
+        html,
+        body {
+            color: black;
+            background-color: black;
+            font-family: monospace;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0 0px;
+        }
+
+        canvas {
+            display: block;
+            margin: 0 auto;
+        }
+
+        a {
+            color: black;
+        }
+
+        a:hover {
+            text-decoration: line-through;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 16px
+        }
+
+        .absolute {
+            position: absolute;
+            margin-left: 20px;
+        }
+
+        .white {
+            color: white;
+        }
+
+        .white>a {
+            color: white;
+        }
+
+        p,
+        input {
+            display: inline-block;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <span class="absolute white">
+        <a href="https://editor.p5js.org/learodrigo/sketches/jdAvUy1Yc" target="_blank">editor.p5js.org</a> || by <a href="https://www.openprocessing.org/sketch/684485" target="_blank">Andrea Diotallevi</a>
+    </span>
+    <script>
+        t = 0
+        e = [8, 19, 1, 1, 1, 4, 8, 19]
+
+        draw = _ => {
+            createCanvas(w = 500, w)
+            noStroke()
+
+            for (j = 1; j < 9; j += 2) {
+                for (i = 0; i < 2 * PI; i += .01) {
+                    a = noise(t += 6e-6)
+                    fill(w, a * 99, a * 50, 9)
+                    circle(62 * (cos(i) ** e[j - 1] * a + j), 62 * (sin(i) ** e[j] * a + 4), a * 9)
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

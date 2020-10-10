@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+    <title>Mars</title>
+    <style media="screen">
+        html,
+        body {
+            color: black;
+            background-color: black;
+            font-family: monospace;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0 0px;
+        }
+
+        canvas {
+            display: block;
+            margin: 0 auto;
+        }
+
+        a {
+            color: black;
+        }
+
+        a:hover {
+            text-decoration: line-through;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 16px
+        }
+
+        .absolute {
+            position: absolute;
+            margin-left: 20px;
+        }
+
+        .white {
+            color: white;
+        }
+
+        .white>a {
+            color: white;
+        }
+
+        p,
+        input {
+            display: inline-block;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <span class="absolute white">
+        <a href="https://editor.p5js.org/learodrigo/sketches/SV8Iiuz4Q" target="_blank">editor.p5js.org</a> || by <a
+            href="https://www.openprocessing.org/sketch/682118" target="_blank">feiss</a>
+    </span>
+    <script>
+        t = 0
+        W = 255
+
+        setup = () => createCanvas(1e3, W, noStroke())
+
+        draw = () => {
+            clear()
+
+            for (i = W * W; --i;) {
+                x = i % W
+                z = i / W
+                y = noise(x / 30, z / 70 + t, 1)
+                z *= 0.01
+                a = (1 - y) * (z * 0.5) * 200
+
+                fill([y * y * W, a, a])
+                circle(500 + (x * 4 - W * 2) / z, y * 175 / z, 26 - z * 10)
+            }
+
+            t += 0.2
+        }
+    </script>
+</body>
+
+</html>
