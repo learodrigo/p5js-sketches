@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Hypnotic Squares</title>
+	<meta charset="utf-8" />
+	<style media="screen">
+		html,
+		body {
+			color: black;
+			background-color: black;
+			font-family: monospace;
+			margin: 0;
+			padding: 0;
+            overflow: hidden;
+		}
+
+		body {
+			margin: 0 0px;
+		}
+
+		canvas {
+			display: block;
+			margin: 0 auto;
+		}
+
+		a {
+			color: black;
+		}
+
+		a:hover {
+			text-decoration: line-through;
+		}
+
+		.title {
+			font-size: 24px;
+			font-weight: bold;
+			margin-bottom: 16px
+		}
+
+		.absolute {
+			position: absolute;
+			margin-left: 20px;
+		}
+
+		.white {
+			color: white;
+		}
+
+		.white>a {
+			color: white;
+		}
+
+		p,
+		input {
+			display: inline-block;
+			margin-left: 10px;
+			vertical-align: middle;
+		}
+        .flex {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+        }
+        p.right {
+            margin-left: 0;
+            margin-right: 10px;
+            text-align: right;
+        }
+	</style>
+</head>
+
+<body>
+    <div class="flex">
+        <p class="white">
+            <a href="https://generativeartistry.com/tutorials/hypnotic-squares/" target="_blank">generativeartistry</a> || Select a border width with pressing any number <b>'0-9'</b> and run with <b>'r'</b> or <b>'c'</b>.  || Pressing <b>'n'</b> stops / handles the background cleaner. || Press <b>'s'</b> to save an image
+        </p>
+        <p class="white right">
+            The line has <u><b><span id="line-width"></span>px</b></u>
+            <br/>
+            Background cleaner is <u><b><span id="clean-cnv"></span></b></u>
+        </p>
+    </div>
+	<canvas id="canvas"></canvas>
+	<script src="sketch.js"></script>
+</body>
+</html>

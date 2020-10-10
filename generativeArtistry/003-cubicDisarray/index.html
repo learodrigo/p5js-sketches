@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Cubic Disarray</title>
+	<meta charset="utf-8" />
+	<style media="screen">
+		html,
+		body {
+			color: black;
+			background-color: black;
+			font-family: monospace;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			margin: 0 0px;
+		}
+
+		canvas {
+			display: block;
+			margin: 0 auto;
+		}
+
+		a {
+			color: black;
+		}
+
+		a:hover {
+			text-decoration: line-through;
+		}
+
+		.title {
+			font-size: 24px;
+			font-weight: bold;
+			margin-bottom: 16px
+		}
+
+		.absolute {
+			position: absolute;
+			margin-left: 20px;
+		}
+
+		.white {
+			color: white;
+		}
+
+		.white>a {
+			color: white;
+		}
+
+		p,
+		input {
+			display: inline-block;
+			margin-left: 10px;
+			vertical-align: middle;
+		}
+	</style>
+</head>
+
+<body>
+	<p class="absolute white">
+        <a href="https://generativeartistry.com/tutorials/cubic-disarray/" target="_blank">generativeartistry</a> ||
+        Press 'c' for chaos, 'a' for alternative, 'r' for return to origin and numbers to change line width or <u>any other</u> (<span id="line-width"></span>px) key for re run
+	</p>
+	<canvas id="canvas"></canvas>
+	<script src="sketch.js"></script>
+</body>
+</html>
