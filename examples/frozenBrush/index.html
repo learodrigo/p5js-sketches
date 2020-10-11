@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
-    <title>Mars</title>
+    <title>Frozen Brush</title>
     <style media="screen">
         html,
         body {
@@ -62,33 +62,12 @@
 
 <body>
     <span class="absolute white">
-        <a href="https://editor.p5js.org/learodrigo/sketches/SV8Iiuz4Q" target="_blank">editor.p5js.org</a> || by <a
-            href="https://www.openprocessing.org/sketch/682118" target="_blank">feiss</a>
+        <a href="https://editor.p5js.org/learodrigo/sketches/YDYIIVZcg" target="_blank">editor.p5js.org</a> ||
+        by <a href="https://www.openprocessing.org/sketch/820864/" target="_blank">Jason Labbe</a>
     </span>
-    <script>
-        let t = 0
-        const W = 400
-
-        setup = () => createCanvas(windowWidth, windowHeight * 0.5, noStroke())
-
-        draw = () => {
-            clear()
-
-            for (i = W * W; --i;) {
-                const x = i % W
-                let z = i / W
-                const y = noise(x / 30, z / 70 + t, 1)
-                z *= 0.01
-                const a = (1 - y) * (z * 0.5) * 200
-
-                fill([y * y * W, a, a])
-                circle(500 + (x * 4 - W * 2) / z, y * 175 / z, 26 - z * 10)
-            }
-
-            t += 0.2
-            noLoop()
-        }
-    </script>
+    <script src="delaunay.js"></script>
+    <script src="Particle.js"></script>
+    <script src="sketch.js"></script>
 </body>
 
 </html>
