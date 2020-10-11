@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+    <title>A tiny wave</title>
+    <style media="screen">
+        html,
+        body {
+            color: black;
+            background-color: black;
+            font-family: monospace;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0 0px;
+        }
+
+        canvas {
+            display: block;
+            margin: 0 auto;
+        }
+
+        a {
+            color: black;
+        }
+
+        a:hover {
+            text-decoration: line-through;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 16px
+        }
+
+        .absolute {
+            position: absolute;
+            margin-left: 20px;
+        }
+
+        .white {
+            color: white;
+        }
+
+        .white>a {
+            color: white;
+        }
+
+        p,
+        input {
+            display: inline-block;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <span class="absolute white">
+        <a href="https://editor.p5js.org/learodrigo/sketches/k_gT_YN0v" target="_blank">editor.p5js.org</a> || by <a
+            href="https://www.openprocessing.org/sketch/682808" target="_blank">Jason Labbe</a>
+    </span>
+    <script>
+        setup = _ => {
+            createCanvas(windowWidth, windowHeight)
+            r = 600
+        }
+
+        draw = _ => {
+            background(0)
+            strokeWeight(.2)
+
+            s = .01
+            f = frameCount * s
+            n = noise
+
+            for (x = 0; x < width; x += 15) {
+                for (y = 0; y < height; y += 5) {
+                    o = n(i = f + x * s, j = f + y * s) * 150
+                    p = n(j, i) * 150
+
+                    stroke(x)
+                    line(x - o, y - p, x + o, y + p)
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
