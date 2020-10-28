@@ -54,7 +54,7 @@ function keyPressed() {
         noLoop()
     }
 
-    if (keyCode === 83) {
+    if (key === 's') {
         save('frames/whileLoopColor-001jpg')
     }
 }

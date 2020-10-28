@@ -38,7 +38,7 @@ function draw () {
 }
 
 function keyPressed () {
-    if (keyCode === 83) {
+    if (key === 's') {
         saveFrames('frames/A_####.jpg')
     }
     redraw()
