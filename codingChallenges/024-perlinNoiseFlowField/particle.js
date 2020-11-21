@@ -20,22 +20,11 @@ class Particle {
   }
 
   edges () {
-    if (this.pos.x > width) {
-      this.pos.x = 0
-      this.updatePrev()
-    }
-    if (this.pos.x < 0) {
-      this.pos.x = width
-      this.updatePrev()
-    }
-    if (this.pos.y > height) {
-      this.pos.y = 0
-      this.updatePrev()
-    }
-    if (this.pos.y < 0) {
-      this.pos.y = height
-      this.updatePrev()
-    }
+    if (this.pos.x > width) this.pos.x = 0
+    if (this.pos.x < 0) this.pos.x = width
+    if (this.pos.y > height) this.pos.y = 0
+    if (this.pos.y < 0) this.pos.y = height
+    this.updatePrev()
   }
 
   applyForce (force) {
@@ -51,10 +40,9 @@ class Particle {
   }
 
   show () {
-    stroke(0, 15)
-    // point(this.pos.x, this.pos.y)
+    stroke(255, 50)
+    strokeWeight(1)
     line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y)
     this.updatePrev()
   }
-
 }
