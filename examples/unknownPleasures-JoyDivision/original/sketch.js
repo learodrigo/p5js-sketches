@@ -37,3 +37,9 @@ function setup () {
         endShape()
     }
 }
+
+function keyPressed () {
+    if (key === ' ') {
+        save()
+    }
+}

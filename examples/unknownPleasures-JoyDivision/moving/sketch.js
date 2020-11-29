@@ -23,3 +23,9 @@ function draw () {
 
     f++
 }
+
+function keyPressed () {
+    if (key === ' ') {
+        save()
+    }
+}
