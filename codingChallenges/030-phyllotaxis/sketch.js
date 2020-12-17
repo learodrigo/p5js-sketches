@@ -26,7 +26,7 @@ function draw() {
   let y = r * sin(a) + height / 2
 
   // fill(255)
-  fill(n % 256, 255, 255)
+  // fill(n % 256, 255, 255)
   // fill(a % 256, 255, 255)
   // fill((a * 180 / PI - r) % 255, 255, 255)
   ellipse(x, y, 4, 4)

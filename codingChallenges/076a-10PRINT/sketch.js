@@ -39,9 +39,7 @@ function draw() {
 		}
 
 		if (y > height) {
-			console.log('Done')
 			noLoop()
-			return
 		}
 	}
 }
