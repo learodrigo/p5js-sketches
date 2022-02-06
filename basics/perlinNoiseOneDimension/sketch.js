@@ -8,10 +8,10 @@ function setup () {
 function draw () {
   background(25)
   shapeCreation()
-  move()
+  movement()
 }
 
-function move () {
+function movement () {
   start += inc
 }
 
