@@ -1,5 +1,6 @@
 const numTiles = 5;
-const stars = []
+const stars = [];
+let isRunning = true;
 
 function setup () {
   createCanvas(600, 600);
@@ -7,6 +8,10 @@ function setup () {
   background(0);
   noFill();
   frameRate(15);
+
+  console.log('Press C to clear the background')
+  console.log('Press R to redraw')
+  console.log('Press I to stop/resume the animation')
 
   const tileSize = width / numTiles;
   const length = sqrt((tileSize * tileSize) + (tileSize * tileSize));
@@ -21,16 +26,18 @@ function setup () {
 let reprint = false;
 
 function draw() {
-  // new Star(mouseX, mouseY, 120).draw()
-
-  for (const star of stars) {
-    star.draw();
+  if (isRunning) {
+    for (const star of stars) {
+      star.draw();
+    }
   }
+
 }
 
 function keyPressed() {
   if (key == 'c') background(0);
   if (key == 'r') redraw();
+  if (key == 'i') isRunning = !isRunning;
 }
 
 
