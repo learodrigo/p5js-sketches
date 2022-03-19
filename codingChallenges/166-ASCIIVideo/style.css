@@ -1,0 +1,79 @@
+html,
+body {
+  background-color: #000;
+  font-family: monospace;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0 0px;
+}
+
+canvas {
+  display: block;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: line-through;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.absolute {
+  position: absolute;
+  margin-left: 20px;
+}
+
+.white {
+  color: white;
+}
+
+.white > a {
+  color: white;
+}
+
+p,
+input {
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+/* sketch */
+/* div {
+  font-size: 3px;
+  line-height: 1.8px;
+  text-align: center;
+} */
+
+/* sketch video */
+video {
+  opacity: 0;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.absolute {
+  left: 16px;
+  top: 16px;
+}
+
+div {
+  font-size: 16px;
+  line-height: 10px;
+  text-align: center;
+}
