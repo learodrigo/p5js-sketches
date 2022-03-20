@@ -10,9 +10,6 @@ function preload() {
 function setup() {
   noCanvas()
 
-  const w = width / img.width
-  const h = height / img.height
-
   img.loadPixels()
   for (let j = 0; j < img.height; j++) {
     let row = ""
