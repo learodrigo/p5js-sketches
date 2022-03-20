@@ -18,15 +18,13 @@ function setup() {
   pixelDensity(1)
 }
 
-function draw () {
-
+function draw() {
   ca = map(mouseX, 0, width, -1, 1)
   cb = map(mouseY, 0, height, -1, 1)
 
   loadPixels()
   for (let x = 0; x < width; x++) {
     for (let y = 0; y < width; y++) {
-
       let a = map(x, 0, width, minVal, maxVal)
       let b = map(y, 0, height, minVal, maxVal)
 
@@ -46,10 +44,9 @@ function draw () {
         n++
       }
 
-
       // let bright = 255
       // let bright = (n * 16) % 255
-      let bright = map(n, 0, maxI, 0, 255)
+      let bright = map(n, 0, maxI, 255, 0)
       // bright = map(sqrt(bright), 0, 1, 0, 255)
       if (n === maxI) {
         bright = 0

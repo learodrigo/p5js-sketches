@@ -1,16 +1,17 @@
 const createCleanBoard = () => [
-  ['', '', ''],
-  ['', '', ''],
-  ['', '', '']
+  ["", "", ""],
+  ["", "", ""],
+  ["", "", ""],
 ]
 
 const board = createCleanBoard()
 const cell = 200
-const players = ['o', 'x']
+const players = ["o", "x"]
 
-let currentPlayer, available = []
+let currentPlayer,
+  available = []
 
-function setup () {
+function setup() {
   createCanvas(600, 600)
 
   currentPlayer = floor(random(players.length))
@@ -22,19 +23,19 @@ function setup () {
   }
 }
 
-function nextTurn () {
+function nextTurn() {
   const index = floor(random(available.length))
   const spot = available.splice(index, 1)[0]
 
   const i = spot[0]
-  const j = spot [1]
+  const j = spot[1]
 
   board[i][j] = players[currentPlayer]
   currentPlayer = (currentPlayer + 1) % players.length
 }
 
 function equals3(a, b, c) {
-  return a === b && b === c && a !== ''
+  return a === b && b === c && a !== ""
 }
 
 function checkWinner() {
@@ -63,13 +64,13 @@ function checkWinner() {
   }
 
   if (winner === null && available.length === 0) {
-    return 'tie'
+    return "tie"
   } else {
     return winner
   }
 }
 
-function draw () {
+function draw() {
   background(220)
 
   strokeWeight(2)
@@ -92,8 +93,7 @@ function draw () {
         strokeWeight(4)
         stroke(0)
         circle(x, y, cell)
-      }
-      else if (spot === players[1]) {
+      } else if (spot === players[1]) {
         strokeWeight(6)
         stroke(0)
         line(x, y, x + cell, y + cell)
@@ -106,7 +106,7 @@ function draw () {
 
   if (result) {
     noLoop()
-    console.log(result)
+    console.log(`${result} wins`)
   }
 
   nextTurn()

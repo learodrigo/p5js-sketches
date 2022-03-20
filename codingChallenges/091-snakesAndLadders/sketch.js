@@ -22,8 +22,8 @@ let averageRolls = 0
 let avgP
 
 function setup() {
-  createCanvas(windowWidth, windowHeight - 8)
-  avgP = createP('')
+  createCanvas(windowWidth, windowHeight)
+  avgP = createP("")
 
   frameRate(5)
 
@@ -45,7 +45,7 @@ function setup() {
     let tile = new Tile(x, y, res, i, i + 1)
     tiles.push(tile)
 
-    x += (res * dir)
+    x += res * dir
     // Move up and left or up and right
     if (x >= width || x <= -res) {
       dir *= -1
@@ -63,7 +63,9 @@ function setup() {
   // Adding snakes
   for (let i = 0; i < 5; i++) {
     let index = floor(random(0, tiles.length - cols))
-    tiles[index].snadders = floor(random(cols - (index % cols), tiles.length - index - 1))
+    tiles[index].snadders = floor(
+      random(cols - (index % cols), tiles.length - index - 1)
+    )
   }
 
   /*
@@ -90,11 +92,9 @@ function draw() {
     rolls[index]++
     player.showPreview()
     state = MOVE_STATE
-
-  } else  if (state === MOVE_STATE) {
+  } else if (state === MOVE_STATE) {
     player.move()
     state = player.isSnadder() ? SNADDER_STATE : ROLL_STATE
-
   } else if (state === SNADDER_STATE) {
     player.moveSnadder()
     state = ROLL_STATE

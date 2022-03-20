@@ -12,23 +12,23 @@ let r, g, b
 let bounce = 0
 let hit = 0
 
-function tintImg () {
+function tintImg() {
   r = random(255)
   g = random(255)
   b = random(255)
   tint(r, g, b)
 }
 
-function preload () {
-  dvd = loadImage('dvd_logo.png')
+function preload() {
+  dvd = loadImage("dvd_logo.png")
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight)
   x = random(dvd.width, width - dvd.width)
   y = random(dvd.height, height - dvd.height)
-  xspeed = 10
-  yspeed = 10
+  xspeed = 5
+  yspeed = 5
 }
 
 function draw() {
@@ -49,10 +49,10 @@ function draw() {
     bounce++
   }
 
-  let hitX = (x + dvd.width === width || x === 0)
-  let hitY = (y + dvd.height === height || y === 0)
+  let hitX = x + dvd.width === width || x === 0
+  let hitY = y + dvd.height === height || y === 0
   if (hitX && hitY) {
     hits++
-    print(hits * 100 / bounce + '% probability to hit a corner')
+    print((hits * 100) / bounce + "% probability to hit a corner")
   }
 }

@@ -14,7 +14,7 @@ function setup() {
 function draw() {
   background(0)
   rotateY(angle)
-  rotateX(angle/2)
+  rotateX(angle / 2)
 
   angle += 0.01
 
@@ -26,7 +26,7 @@ function draw() {
   while (beta < PI) {
     let r = (0.8 + 1.6 * sin(6 * beta)) * 100
     let theta = 2 * beta
-    let phi =  0.6 * PI * sin(12 * beta)
+    let phi = 0.6 * PI * sin(12 * beta)
     let x = r * cos(phi) * cos(theta)
     let y = r * cos(phi) * sin(theta)
     let z = r * sin(phi)

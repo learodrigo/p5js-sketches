@@ -15,14 +15,16 @@ function setup() {
   for (let x = 0; x < width; x++) {
     grid[x] = []
     next[x] = []
+
     for (let y = 0; y < height; y++) {
       grid[x][y] = {
         a: 1,
-        b: 0
+        b: 0,
       }
+
       next[x][y] = {
         a: 1,
-        b: 0
+        b: 0,
       }
     }
   }
@@ -38,9 +40,7 @@ function setup() {
       grid[i][j].b = 1
     }
   }
-
 }
-
 
 function laplaceA(x, y) {
   let sumA = 0
@@ -70,14 +70,11 @@ function laplaceB(x, y) {
   return sumB
 }
 
-
-
 function swap() {
   let temp = grid
   grid = next
   next = temp
 }
-
 
 function draw() {
   background(51)
@@ -86,21 +83,14 @@ function draw() {
     for (let y = 1; y < height - 1; y++) {
       let a = grid[x][y].a
       let b = grid[x][y].b
-      next[x][y].a = a +
-        (dA * laplaceA(x, y)) -
-        (a * b * b) +
-        (feed * (1 - a))
 
-      next[x][y].b = b +
-        (dB * laplaceB(x, y)) +
-        (a * b * b) -
-        ((k + feed) * b)
+      next[x][y].a = a + dA * laplaceA(x, y) - a * b * b + feed * (1 - a)
+      next[x][y].b = b + dB * laplaceB(x, y) + a * b * b - (k + feed) * b
 
       next[x][y].a = constrain(next[x][y].a, 0, 1)
       next[x][y].b = constrain(next[x][y].b, 0, 1)
     }
   }
-
 
   loadPixels()
   for (let x = 0; x < width; x++) {

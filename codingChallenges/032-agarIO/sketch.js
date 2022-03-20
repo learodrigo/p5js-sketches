@@ -32,7 +32,6 @@ function draw() {
   // Moving the background
   translate(-blob.pos.x, -blob.pos.y)
 
-
   // Small ones
   for (let i = blobs.length - 1; i >= 0; i--) {
     blobs[i].show()

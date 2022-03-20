@@ -7,11 +7,12 @@
  */
 
 let grid
+
 let cols
 let rows
 let res = 4
 
-function make2DArray (cols, rows) {
+function make2DArray(cols, rows) {
   let arr = new Array(cols)
   for (let i = 0; i < arr.length; i++) {
     arr[i] = new Array(rows)
@@ -19,11 +20,10 @@ function make2DArray (cols, rows) {
   return arr
 }
 
-function countNeighbors (grid, x, y) {
+function countNeighbors(grid, x, y) {
   let sum = 0
   for (let i = -1; i < 2; i++) {
     for (let j = -1; j < 2; j++) {
-
       let col = (x + i + cols) % cols
       let row = (y + j + rows) % rows
 
@@ -36,7 +36,7 @@ function countNeighbors (grid, x, y) {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight)
+  createCanvas(840, 640)
   cols = width / res
   rows = height / res
 

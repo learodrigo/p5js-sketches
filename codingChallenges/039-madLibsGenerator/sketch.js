@@ -4,42 +4,43 @@
 // https://github.com/jsoma/tabletop
 
 let data
-let text = '$$Exclamation$$! They said $$Adverb$$ as they jumped into their $$Noun$$ and flew off with their $$Adjective$$ $$PluralNoun$$.'
+let text =
+  "$$Exclamation$$! They said $$Adverb$$ as they jumped into their $$Noun$$ and flew off with their $$Adjective$$ $$PluralNoun$$."
 
-function setup () {
+function setup() {
   noCanvas()
 
   Tabletop.init({
-    key: 'https://docs.google.com/spreadsheets/d/15WyEmfu6B1UCzzqeacYnzI8lutrxF6uWvFDiSteBqTs/pubhtml',
+    key: "",
     callback: gotData,
-    simpleSheet: true
+    simpleSheet: true,
   })
 
-  let button = createButton('Generate MadLib')
+  let button = createButton("Generate MadLib")
   button.mousePressed(generate)
 }
 
 // js replace function can have a callback that returns the full match
 // and the group one which is the part of speech
-function replacer (match, pos) {
+function replacer(match, pos) {
   let aux = random(data)
   let entry = aux
 
   // There's a annoyed faked XXS entry
-  if (/(<([^>]+)>)/ig.test(aux[pos])) {
-    entry = aux.replace(/(<([^>]+)>)/ig, '')
+  if (/(<([^>]+)>)/gi.test(aux[pos])) {
+    entry = aux.replace(/(<([^>]+)>)/gi, "")
   }
 
   return entry[pos]
 }
 
-function generate () {
+function generate() {
   // skip $ skip $ (start whatever is inside) skip $ skip $
   // and global to match all
   let madlib = text.replace(/\$\$(.*?)\$\$/g, replacer)
   createP(madlib)
 }
 
-function gotData (stuff, tabletop) {
+function gotData(stuff, tabletop) {
   data = stuff
 }

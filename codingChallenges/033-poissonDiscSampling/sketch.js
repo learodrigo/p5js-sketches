@@ -30,14 +30,13 @@ function setup() {
   }
 
   // Pick a random point to start
-  let x = width / 2//random(width)
-  let y = height / 2//random(height)
+  let x = width / 2 //random(width)
+  let y = height / 2 //random(height)
   let i = floor(x / w)
   let j = floor(y / w)
   let pos = createVector(x, y)
   grid[i + j * cols] = pos
   active.push(pos)
-
 }
 
 function draw() {
@@ -72,19 +71,20 @@ function draw() {
         // We also need to check if there's a value in the picked cell
         // and 0 <= col <= cols
         // and 0 <= row <= rows
-        if (col >= 0 &&
-            col <= cols &&
-            row >= 0 &&
-            row <= rows &&
-            !grid[col * row * cols]
-           ) {
+        if (
+          col >= 0 &&
+          col <= cols &&
+          row >= 0 &&
+          row <= rows &&
+          !grid[col * row * cols]
+        ) {
           // Then I check if there are points in the next cells
           let ok = true
           // From left to right 1 cell
           for (let i = -1; i <= 1; i++) {
             // From top to bottom 1 cell
             for (let j = -1; j <= 1; j++) {
-              let index = (col + i) + (row + j) * cols
+              let index = col + i + (row + j) * cols
               let neighbor = grid[index]
               // Checking the distance if it has a value
               if (neighbor) {
@@ -110,7 +110,6 @@ function draw() {
         active.splice(randomIndex, 1)
       }
     } // active.length
-
   } // times per frame
 
   // Grid
@@ -134,9 +133,9 @@ function draw() {
   }
 
   // Active
-  // for (let i = 0; i < active.length; i++) {
-  //   stroke(255, 0, 255)
-  //   strokeWeight(STROKE)
-  //   point(active[i].x, active[i].y)
-  // }
+  for (let i = 0; i < active.length; i++) {
+    stroke(255, 0, 255)
+    strokeWeight(STROKE)
+    point(active[i].x, active[i].y)
+  }
 }

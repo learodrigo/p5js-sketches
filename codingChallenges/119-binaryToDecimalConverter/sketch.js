@@ -6,12 +6,12 @@
 
 let decimalP
 
-let num = '10110110'
+let num = "10110110"
 let byte = []
 
 function setup() {
   createCanvas(500, 100)
-  decimalP = select('#decimal')
+  decimalP = select("#decimal")
 
   let w = width / 8
   for (let i = 0; i < 8; i++) {
@@ -25,20 +25,20 @@ function draw() {
 
   decimalP.html(binaryToDecimal(num))
 
-  num =  ''
+  num = ""
   for (let i = 0; i < byte.length; i++) {
     byte[i].show()
-    num += byte[i].state ? '1' : '0'
+    num += byte[i].state ? "1" : "0"
   }
 }
 
-function mousePressed () {
+function mousePressed() {
   for (let b of byte) {
     b.toggle(mouseX, mouseY)
   }
 }
 
-function binaryToDecimal (val) {
+function binaryToDecimal(val) {
   let sum = 0
   for (let i = 0; i < val.length; i++) {
     // Starting from the end

@@ -39,9 +39,9 @@ function draw() {
   // Attractors display
   for (let a of attractors) {
     push()
-      strokeWeight(8)
-      stroke(0, 0)
-      point(a.x, a.y)
+    strokeWeight(8)
+    stroke(0, 0)
+    point(a.x, a.y)
     pop()
   }
 

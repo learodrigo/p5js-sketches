@@ -8,7 +8,7 @@
  */
 
 // Number of fix points
-const FIX_POINTS = 5
+const FIX_POINTS = 4
 
 // Starting points
 let points
@@ -16,7 +16,7 @@ let points
 let current
 
 let previous
-let percent = 0.6
+let percent = 0.5
 
 function setup() {
   createCanvas(windowWidth, windowHeight)
@@ -25,7 +25,7 @@ function setup() {
   points = []
   for (let i = 0; i < FIX_POINTS; i++) {
     // Circle
-    let angle = i * TWO_PI / FIX_POINTS
+    let angle = (i * TWO_PI) / FIX_POINTS
     let v = p5.Vector.fromAngle(angle)
     v.mult(height / 2)
     v.add(width / 2, height / 2)
@@ -37,14 +37,14 @@ function setup() {
   reset()
 }
 
-function reset () {
+function reset() {
   // Drawing point
   let x = random(width)
   let y = random(height)
   current = createVector(x, y)
 }
 
-function drawSequence () {
+function drawSequence() {
   stroke(255, 100)
   strokeWeight(1)
   let next = random(points)

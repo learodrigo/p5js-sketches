@@ -16,14 +16,12 @@ function setup() {
   maxSlider = createSlider(0, 2.5, 2.5, 0.01)
 }
 
-
 function draw() {
   loadPixels()
   for (let x = 0; x < width; x++) {
     for (let y = 0; y < width; y++) {
-
-      let a = map(x, 0, width, minSlider.value(),  maxSlider.value())
-      let b = map(y, 0, height, minSlider.value(),  maxSlider.value())
+      let a = map(x, 0, width, minSlider.value(), maxSlider.value())
+      let b = map(y, 0, height, minSlider.value(), maxSlider.value())
 
       let ca = a
       let cb = b
@@ -41,7 +39,6 @@ function draw() {
         }
         n++
       }
-
 
       // let bright = 255
       // let bright = (n * 16) % 255
